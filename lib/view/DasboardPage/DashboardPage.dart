@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';
@@ -25,58 +26,46 @@ class _DashboardPageState extends State<DashboardPage> {
     ];
 
     return Scaffold(
-        bottomNavigationBar: Stack(
-          children: [
-            Container(
-              height: 80,
-              alignment: Alignment.bottomCenter,
-              child: BottomNavigationBar(
-                items: [
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    title: Text('Home'),
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.person),
-                    title: Text("Profile"),
-                  ),
-                ],
-                currentIndex: _bottomNavBarSelectedIndex,
-                selectedItemColor: Colors.green,
-                onTap: _onItemTapped,
-              ),
-            ),
-            Container(
-              height: 50,
-              alignment: Alignment.bottomCenter,
-              margin: EdgeInsets.only(
-                bottom: 30,
-              ),
-              child: Card(
-                color: Colors.amber,
-                child: Container(
-                  alignment: Alignment.center,
-                  height: 40,
-                  width: 70,
-                  child: Text(
-                    "+",
-                    style: TypographyStyle.button1,
-                  ),
-                ),
-              ),
-            ),
-          ],
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text('Home'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            title: Text("Profile"),
+          ),
+        ],
+        currentIndex: _bottomNavBarSelectedIndex,
+        selectedItemColor: Colors.green,
+      ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(
+          bottom: 12,
         ),
-        body: _children[_bottomNavBarSelectedIndex]);
-  }
-
-  _onItemTapped(index) {
-    if (index != _bottomNavBarSelectedIndex) {
-      if (index != 2) {
-        setState(() {
-          _bottomNavBarSelectedIndex = index;
-        });
-      }
-    }
+        child: Container(
+          alignment: Alignment.bottomCenter,
+          margin: const EdgeInsets.only(left: 30, bottom: 20),
+          child: RawMaterialButton(
+            fillColor: Colors.amber,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            elevation: 2,
+            onPressed: () {},
+            child: Padding(
+              padding: const EdgeInsets.all(14),
+              child: Text(
+                "+",
+                style: TypographyStyle.title,
+              ),
+            ),
+          ),
+        ),
+      ),
+      body: _children[_bottomNavBarSelectedIndex],
+    );
   }
 }
