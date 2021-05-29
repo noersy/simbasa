@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
-import 'package:simbasa/theme/TypographyStyle.dart';
-import 'package:simbasa/view/DasboardPage/HomePage/component/chart/linecart.dart';
+import 'package:simbasa/view/DasboardPage/TransactionPage/NasabahPage/NasabahPage.dart';
+import 'package:simbasa/view/DasboardPage/component/chart/linecart.dart';
+import 'package:simbasa/view/DasboardPage/component/component.dart';
 import 'package:simbasa/view/component/appbar/appbar.dart';
 
 class HomePage extends StatefulWidget {
@@ -56,11 +58,87 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(8),
-                height: MediaQuery.of(context).size.height / 3 - 20,
-                width: MediaQuery.of(context).size.width,
-                child: LineChartSample2(),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 26, top: 24),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8, right: 8),
+                        child: Text(
+                          "Hari",
+                          style: TextStyle(
+                            shadows: [
+                              Shadow(
+                                  color: Colors.deepOrangeAccent,
+                                  offset: Offset(0, -5))
+                            ],
+                            color: Colors.transparent,
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.deepOrangeAccent,
+                            decorationThickness: 2,
+                            decorationStyle: TextDecorationStyle.solid,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8, right: 8),
+                        child: Text(
+                          "Minggu",
+                          style: TextStyle(
+                            shadows: [
+                              Shadow(
+                                  color: Colors.black87,
+                                  offset: Offset(0, -5))
+                            ],
+                            color: Colors.transparent,
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.transparent,
+                            decorationThickness: 2,
+                            decorationStyle: TextDecorationStyle.solid,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8, right: 8),
+                        child: Text(
+                          "Bulan",
+                          style: TextStyle(
+                            shadows: [
+                              Shadow(
+                                  color: Colors.black87,
+                                  offset: Offset(0, -5))
+                            ],
+                            color: Colors.transparent,
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.transparent,
+                            decorationThickness: 2,
+                            decorationStyle: TextDecorationStyle.solid,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8, right: 8),
+                        child: Text(
+                          "Tahun",
+                          style: TextStyle(
+                            shadows: [
+                              Shadow(
+                                  color: Colors.black87,
+                                  offset: Offset(0, -5))
+                            ],
+                            color: Colors.transparent,
+                            decoration: TextDecoration.underline,
+                            decorationColor: Colors.transparent,
+                            decorationThickness: 2,
+                            decorationStyle: TextDecorationStyle.solid,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
+              LineChartSample2(),
               Container(
                 padding: const EdgeInsets.only(
                     left: 18, right: 18, top: 8, bottom: 8),
@@ -79,10 +157,33 @@ class _HomePageState extends State<HomePage> {
                   child: ListView(
                     physics: BouncingScrollPhysics(),
                     children: [
-                      _listTile(subtitle: "test", title: "text", mini: "mini"),
-                      _listTile(subtitle: "test", title: "text", mini: "mini"),
-                      _listTile(subtitle: "test", title: "text", mini: "mini"),
-                      _listTile(subtitle: "test", title: "text", mini: "mini"),
+                      listTile(
+                        subtitle: "Nasabah",
+                        title: "234",
+                        mini: "mini",
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => NasabahPage(),
+                            ),
+                          );
+                        },
+                      ),
+                      listTile(
+                        subtitle: "Setoran",
+                        title: "45",
+                        mini: "mini",
+                      ),
+                      listTile(
+                        subtitle: "Penarikan",
+                        title: "12",
+                        mini: "mini",
+                      ),
+                      listTile(
+                        subtitle: "Penjualan",
+                        title: "12",
+                        mini: "mini",
+                      ),
                     ],
                   ),
                 ),
@@ -93,30 +194,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-}
-
-ListTile _listTile({String title, String subtitle, String mini}) {
-  return ListTile(
-    title: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          subtitle,
-          style: TypographyStyle.paragraph,
-        ),
-        Text(
-          title,
-          style: TypographyStyle.subtitle1,
-        ),
-      ],
-    ),
-    subtitle: Text(mini, style: TypographyStyle.mini),
-    leading: Padding(
-      padding: const EdgeInsets.only(left: 8, top: 4),
-      child: Icon(
-        Icons.people,
-        size: 42,
-      ),
-    ),
-  );
 }

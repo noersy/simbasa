@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';
 import 'package:simbasa/view/DasboardPage/HomePage/HomePage.dart';
-import 'package:simbasa/view/DasboardPage/HomePage/component/chart/linecart.dart';
+import 'package:simbasa/view/DasboardPage/component/component.dart';
 import 'package:simbasa/view/ProfilePage/ProfilePage.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -90,7 +89,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                _card(
+                                card(
                                     title: "test",
                                     icon: Icon(Icons.description),
                                     onPressed: () {
@@ -99,7 +98,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                         _addButton = false;
                                       });
                                     }),
-                                _card(
+                                card(
                                   title: "test",
                                   icon: Icon(Icons.movie),
                                   onPressed: () {
@@ -114,7 +113,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                _card(
+                                card(
                                   title: "test",
                                   icon: Icon(Icons.link),
                                   onPressed: () {
@@ -127,7 +126,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                 SizedBox(
                                   width: 90,
                                 ),
-                                _card(
+                                card(
                                   title: "test",
                                   icon: Icon(Icons.source),
                                   onPressed: () {
@@ -151,44 +150,14 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
-  InkWell _card({String title, Icon icon, Function onPressed}) {
-    return InkWell(
-      onTap: onPressed,
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Container(
-          width: 120,
-          padding: const EdgeInsets.all(8),
-          child: Row(
-            children: [
-              Container(
-                child: Container(
-                  width: 40,
-                  height: 40,
-                  child: icon,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle, color: Color(0xFFe0f2f1)),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 12),
-                child: Text(title),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
   void _onPressed(index) {
     if (index == 0) print("Home");
     if (index == 1)
-      Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => ProfilePage(),
-      ));
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (context) => ProfilePage(),
+        ),
+      );
   }
 
   void _onPressedAdd() {
