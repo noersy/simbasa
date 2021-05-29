@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';
 import 'package:simbasa/view/DasboardPage/HomePage/component/chart/linecart.dart';
 import 'package:simbasa/view/component/appbar/appbar.dart';
@@ -14,13 +15,20 @@ class _HomePageState extends State<HomePage> {
     return Container(
       alignment: Alignment.topCenter,
       child: Scaffold(
-        appBar: appbar(title: "HomePage"),
+        backgroundColor: PaletteColor.primarybg2,
+        appBar: appbar(
+          title: "Hallo, User!",
+        ),
         body: Container(
           child: Column(
             children: [
               Container(
                 margin: const EdgeInsets.only(
-                    top: 8, bottom: 8, left: 12, right: 12),
+                  top: 8,
+                  bottom: 8,
+                  left: 12,
+                  right: 12,
+                ),
                 width: MediaQuery.of(context).size.width,
                 child: ListTile(
                   leading: Container(
@@ -65,17 +73,18 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              Container(
-                height: (MediaQuery.of(context).size.height / 2.88) + 0.98,
-                padding: const EdgeInsets.all(8),
-                child: ListView(
-                  physics: BouncingScrollPhysics(),
-                  children: [
-                    _listTile(subtitle: "test", title: "text", mini: "mini"),
-                    _listTile(subtitle: "test", title: "text", mini: "mini"),
-                    _listTile(subtitle: "test", title: "text", mini: "mini"),
-                    _listTile(subtitle: "test", title: "text", mini: "mini"),
-                  ],
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: ListView(
+                    physics: BouncingScrollPhysics(),
+                    children: [
+                      _listTile(subtitle: "test", title: "text", mini: "mini"),
+                      _listTile(subtitle: "test", title: "text", mini: "mini"),
+                      _listTile(subtitle: "test", title: "text", mini: "mini"),
+                      _listTile(subtitle: "test", title: "text", mini: "mini"),
+                    ],
+                  ),
                 ),
               ),
             ],
