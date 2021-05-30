@@ -228,8 +228,9 @@ class _LineChartSample2State extends State<LineChartSample2> {
         ),
       ),
       borderData: FlBorderData(
-          show: true,
-          border: Border.all(color: const Color(0xff37434d), width: 1)),
+        show: true,
+        border: Border.all(color: const Color(0xff37434d), width: 1),
+      ),
       minX: 0,
       maxX: 11,
       minY: 0,

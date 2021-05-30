@@ -9,8 +9,7 @@ InkWell card({String title, Icon icon, Function onPressed}) {
         borderRadius: BorderRadius.circular(10),
       ),
       child: Container(
-        width: 120,
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(12),
         child: Row(
           children: [
             Container(
@@ -61,24 +60,39 @@ ListTile listTile(
   );
 }
 
-Widget listTile2({String subtitle, Function onPressed}) {
-  return Padding(
-    padding: const EdgeInsets.only(left: 4, right: 4),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Icon(Icons.check_box_outline_blank_outlined),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 8, top: 4),
-          child: CircleAvatar(
-            backgroundImage: NetworkImage(
-                'https://media-exp1.licdn.com/dms/image/C5603AQH-xdswau0QEA/profile-displayphoto-shrink_800_800/0/1618682673767?e=1627516800&v=beta&t=VM3Zeyy9KVvWz5CX-v7Knn-S0bOznGulVdbENAhDbH8'),
+Card listTile2({String subtitle, Function onPressed, bool isChe}) {
+  return Card(
+    child: Container(
+      padding: const EdgeInsets.only(left: 10, right: 10, top: 8, bottom: 8),
+      alignment: Alignment.centerLeft,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Icon(
+            !isChe ? Icons.check_box_outline_blank_outlined : Icons.check_box,
           ),
-        ),
-      ],
+          SizedBox(
+            width: 80,
+            child: Text("Nur Syahfei"),
+          ),
+          SizedBox(
+            width: 80,
+            child: Column(
+              children: [
+                Align(alignment: Alignment.bottomLeft, child: Text("Rp 1")),
+                Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Text("Rp 1", style: TypographyStyle.mini),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            width: 80,
+            child: Text("30 Mei"),
+          ),
+        ],
+      ),
     ),
   );
 }

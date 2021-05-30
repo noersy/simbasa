@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';
 import 'package:simbasa/view/DasboardPage/HomePage/HomePage.dart';
+import 'package:simbasa/view/DasboardPage/UserBottomSheetFialog/UserBottomSheetDialog.dart';
 import 'package:simbasa/view/DasboardPage/component/component.dart';
 import 'package:simbasa/view/ProfilePage/ProfilePage.dart';
 
@@ -80,63 +81,56 @@ class _DashboardPageState extends State<DashboardPage> {
                       });
                     },
                     child: Container(
+                      padding: const EdgeInsets.all(8.0),
                       color: PaletteColor.grey.withOpacity(0.3),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      child: Container(
+                        margin: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width / 2),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                card(
-                                    title: "test",
-                                    icon: Icon(Icons.description),
-                                    onPressed: () {
-                                      print("a");
-                                      setState(() {
-                                        _addButton = false;
-                                      });
-                                    }),
-                                card(
-                                  title: "test",
-                                  icon: Icon(Icons.movie),
-                                  onPressed: () {
-                                    print("a");
-                                    setState(() {
-                                      _addButton = false;
-                                    });
-                                  },
-                                ),
-                              ],
+                            card(
+                                title: "Penjualan",
+                                icon: Icon(Icons.description),
+                                onPressed: () {
+                                  print("a");
+                                  setState(() {
+                                    _addButton = false;
+                                  });
+                                }),
+                            card(
+                              title: "Penyetoran",
+                              icon: Icon(Icons.movie),
+                              onPressed: () {
+                                print("a");
+                                setState(() {
+                                  _addButton = false;
+                                });
+                              },
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                card(
-                                  title: "test",
-                                  icon: Icon(Icons.link),
-                                  onPressed: () {
-                                    print("a");
-                                    setState(() {
-                                      _addButton = false;
-                                    });
-                                  },
-                                ),
-                                SizedBox(
-                                  width: 90,
-                                ),
-                                card(
-                                  title: "test",
-                                  icon: Icon(Icons.source),
-                                  onPressed: () {
-                                    print("a");
-                                    setState(() {
-                                      _addButton = false;
-                                    });
-                                  },
-                                ),
-                              ],
+                            card(
+                              title: "Penarikan",
+                              icon: Icon(Icons.source),
+                              onPressed: () {
+                                print("a");
+                                setState(() {
+                                  _addButton = false;
+                                });
+                              },
+                            ),
+                            card(
+                              title: "Add Nasabah",
+                              icon: Icon(Icons.link),
+                              onPressed: () {
+                                print("a");
+                                setState(() {
+                                  _addButton = false;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              height: 30,
                             ),
                           ],
                         ),
@@ -153,10 +147,9 @@ class _DashboardPageState extends State<DashboardPage> {
   void _onPressed(index) {
     if (index == 0) print("Home");
     if (index == 1)
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => ProfilePage(),
-        ),
+      showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context) => UserBottomSheetDialog(ctx: context),
       );
   }
 

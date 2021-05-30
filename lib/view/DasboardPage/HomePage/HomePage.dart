@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
-import 'package:simbasa/view/DasboardPage/TransactionPage/NasabahPage/NasabahPage.dart';
+import 'package:simbasa/view/DasboardPage/DataListPage/NasabahPage/NasabahPage.dart';
 import 'package:simbasa/view/DasboardPage/component/chart/linecart.dart';
 import 'package:simbasa/view/DasboardPage/component/component.dart';
 import 'package:simbasa/view/component/appbar/appbar.dart';
