@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:simbasa/theme/PaletteColor.dart';
+import 'package:simbasa/theme/TypographyStyle.dart';
+import 'package:simbasa/view/component/appbar/appbar.dart';
 
 class AddNasabahPage extends StatefulWidget {
   @override
@@ -8,6 +12,113 @@ class AddNasabahPage extends StatefulWidget {
 class _AddNasabahPageState extends State<AddNasabahPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Container());
+    return Scaffold(
+      backgroundColor: PaletteColor.primarybg2,
+      appBar: appbar(
+        title: "Add Nasabah",
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          alignment: Alignment.bottomCenter,
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView(
+                  children: [
+                    _listTile(
+                      title: "Name",
+                      hitText: "Your name",
+                    ),
+                    _listTile(
+                      title: "Address",
+                      hitText: "Enter address",
+                    ),
+                    _listTile(
+                      title: "Tlp",
+                      hitText: "Enter number",
+                    ),
+                    _listTile(
+                      title: "Picture",
+                      hitText: "Url picture",
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.all(12),
+                alignment: Alignment.bottomCenter,
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  child: FlatButton(
+                    height: 48,
+                    color: PaletteColor.primary,
+                    splashColor: PaletteColor.primary80,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(3.0),
+                      side: BorderSide(
+                        color: PaletteColor.red,
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: Text(
+                      "Add",
+                      style: TypographyStyle.button1.merge(
+                        TextStyle(
+                          color: PaletteColor.primarybg,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
+}
+
+Widget _listTile({String title, String hitText}) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: ListTile(
+      title: Text(
+        title,
+        style: TypographyStyle.caption1.merge(
+          TextStyle(
+            fontSize: 14,
+            color: PaletteColor.grey80,
+          ),
+        ),
+      ),
+      subtitle: Padding(
+        padding: const EdgeInsets.only(left: 8, right: 8),
+        child: TextFormField(
+          keyboardType: TextInputType.url,
+          style: TypographyStyle.button1,
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            hintText: hitText,
+            contentPadding: EdgeInsets.only(
+              left: 16,
+              top: 12,
+              bottom: 8,
+            ),
+            hintStyle: TypographyStyle.paragraph.merge(
+              TextStyle(
+                color: PaletteColor.grey60,
+              ),
+            ),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: PaletteColor.primary,
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
 }

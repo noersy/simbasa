@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';
 import 'package:simbasa/view/DasboardPage/HomePage/HomePage.dart';
+import 'package:simbasa/view/DasboardPage/TransactionsPage/AddNasabahPage.dart';
 import 'package:simbasa/view/DasboardPage/UserBottomSheetFialog/UserBottomSheetDialog.dart';
 import 'package:simbasa/view/DasboardPage/component/component.dart';
 import 'package:simbasa/view/ProfilePage/ProfilePage.dart';
@@ -123,10 +124,14 @@ class _DashboardPageState extends State<DashboardPage> {
                               title: "Add Nasabah",
                               icon: Icon(Icons.link),
                               onPressed: () {
-                                print("a");
                                 setState(() {
                                   _addButton = false;
                                 });
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => AddNasabahPage(),
+                                  ),
+                                );
                               },
                             ),
                             SizedBox(
