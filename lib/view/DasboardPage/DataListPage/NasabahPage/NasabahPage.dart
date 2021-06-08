@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
+import 'package:simbasa/theme/TypographyStyle.dart';
+import 'package:simbasa/view/DasboardPage/DataListPage/NasabahPage/EditPage/EditPage.dart';
 import 'package:simbasa/view/DasboardPage/component/chart/linecart.dart';
 import 'package:simbasa/view/DasboardPage/component/component.dart';
 import 'package:simbasa/view/component/appbar/appbar.dart';
@@ -41,15 +43,15 @@ class _NasabahPageState extends State<NasabahPage> {
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Text'),
-                    Text('Text'),
+                    Text('Nasabah'),
+                    Text('Baru'),
                   ],
                 ),
                 subtitle: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('test'),
-                    Text('Text'),
+                    Text('234'),
+                    Text('+1,6%', style: TextStyle(color: PaletteColor.green),),
                   ],
                 ),
               ),
@@ -131,36 +133,14 @@ class _NasabahPageState extends State<NasabahPage> {
             ),
             LineChartSample2(),
             Container(
-              padding:
-                  const EdgeInsets.only(left: 18, right: 18, top: 8, bottom: 8),
-              alignment: Alignment.topCenter,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text('See All'),
-                ],
-              ),
-            ),
-            Container(
               padding: const EdgeInsets.only(top: 8, bottom: 8),
               alignment: Alignment.centerLeft,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  SizedBox(
-                    width: 80,
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          isChe = (!isChe) ? true : false;
-                        });
-                      },
-                      child: Icon(
-                        !isChe
-                            ? Icons.check_box_outline_blank_outlined
-                            : Icons.check_box,
-                      ),
-                    ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 24, right: 8),
+                    child: Text("#"),
                   ),
                   Align(
                       alignment: Alignment.bottomLeft,
@@ -176,16 +156,40 @@ class _NasabahPageState extends State<NasabahPage> {
                 child: ListView(
                   physics: BouncingScrollPhysics(),
                   children: [
-                    GestureDetector(
-                      onTap: (){
-                        setState(() {
-                          isChe2 = (!isChe2) ? true : false;
-                        });
-                      },
-                      child: listTile2(
-                        subtitle: "test",
-                        isChe: isChe2
-                      ),
+                    listTile2(
+                      subtitle: "Nur Syahfei",
+                      amount: "100",
+                      kg: "10",
+                      index: 1,
+                      onLongPressed: showEdit,
+                    ),
+                    listTile2(
+                      subtitle: "Daffa",
+                      amount: "100",
+                      kg: "10",
+                      index: 2,
+                      onLongPressed: showEdit,
+                    ),
+                    listTile2(
+                      subtitle: "Rifaldi Nur Huda",
+                      amount: "100",
+                      kg: "10",
+                      index: 3,
+                      onLongPressed: showEdit,
+                    ),
+                    listTile2(
+                      subtitle: "Ilmi",
+                      amount: "100",
+                      kg: "10",
+                      index: 4,
+                      onLongPressed: showEdit,
+                    ),
+                    listTile2(
+                      subtitle: "Ian",
+                      amount: "100",
+                      kg: "10",
+                      index: 5,
+                      onLongPressed: showEdit,
                     ),
                   ],
                 ),
@@ -194,6 +198,12 @@ class _NasabahPageState extends State<NasabahPage> {
           ],
         ),
       ),
+    );
+  }
+
+  void showEdit() async {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => EditPage(ctx: context)),
     );
   }
 }

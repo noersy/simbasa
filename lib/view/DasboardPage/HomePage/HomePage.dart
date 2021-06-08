@@ -44,15 +44,15 @@ class _HomePageState extends State<HomePage> {
                   title: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Text'),
-                      Text('Text'),
+                      Text('Dana'),
+                      Text('RP 10,945.00'),
                     ],
                   ),
                   subtitle: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('test'),
-                      Text('Text'),
+                      Text('Terkumpul'),
+                      Text('13.021 Ton'),
                     ],
                   ),
                 ),
@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Chart'),
+                    Text('Report'),
                     Text('See All'),
                   ],
                 ),
@@ -159,8 +159,8 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       listTile(
                         subtitle: "Nasabah",
-                        title: "234",
-                        mini: "mini",
+                        title: "5",
+                        mini: "5+",
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(

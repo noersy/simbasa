@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';
 
-AppBar appbar({@required String title}) {
+AppBar appbar({@required String title, List<Widget> action}) {
   return AppBar(
     backgroundColor: PaletteColor.primarybg2,
     iconTheme: IconThemeData(
@@ -16,6 +16,7 @@ AppBar appbar({@required String title}) {
         ),
       ),
     ),
+    actions: action,
     elevation: 0,
   );
 }

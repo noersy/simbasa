@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';
 
 InkWell card({String title, Icon icon, Function onPressed}) {
@@ -49,7 +50,7 @@ ListTile listTile(
         ),
       ],
     ),
-    subtitle: Text(mini, style: TypographyStyle.mini),
+    subtitle: Text(mini, style: TypographyStyle.mini.merge(TextStyle(color: PaletteColor.green))),
     leading: Padding(
       padding: const EdgeInsets.only(left: 8, top: 4),
       child: Icon(
@@ -60,38 +61,46 @@ ListTile listTile(
   );
 }
 
-Card listTile2({String subtitle, Function onPressed, bool isChe}) {
+Widget listTile2({String subtitle, String amount, String kg, Function onPressed, Function onLongPressed, int index}) {
   return Card(
-    child: Container(
-      padding: const EdgeInsets.only(left: 10, right: 10, top: 8, bottom: 8),
-      alignment: Alignment.centerLeft,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Icon(
-            !isChe ? Icons.check_box_outline_blank_outlined : Icons.check_box,
-          ),
-          SizedBox(
-            width: 80,
-            child: Text("Nur Syahfei"),
-          ),
-          SizedBox(
-            width: 80,
-            child: Column(
-              children: [
-                Align(alignment: Alignment.bottomLeft, child: Text("Rp 1")),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text("Rp 1", style: TypographyStyle.mini),
-                ),
-              ],
+    child: InkWell(
+      onTap: () {},
+      onLongPress: onLongPressed,
+      child: Container(
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 8, bottom: 8),
+        alignment: Alignment.centerLeft,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(index.toString() + "."),
+            SizedBox(
+              width: 80,
+              child: Text(subtitle),
             ),
-          ),
-          SizedBox(
-            width: 80,
-            child: Text("30 Mei"),
-          ),
-        ],
+            SizedBox(
+              width: 80,
+              child: Column(
+                children: [
+                  Align(alignment: Alignment.bottomLeft, child: Text("Rp " + amount)),
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Text(kg + " Kg", style: TypographyStyle.mini),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              width: 80,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Last Activity", style: TypographyStyle.mini,),
+                  Text("1 Jun"),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     ),
   );

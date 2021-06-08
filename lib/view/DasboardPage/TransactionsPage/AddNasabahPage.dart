@@ -25,6 +25,7 @@ class _AddNasabahPageState extends State<AddNasabahPage> {
             children: [
               Expanded(
                 child: ListView(
+                  physics: BouncingScrollPhysics(),
                   children: [
                     _listTile(
                       title: "Name",
@@ -35,12 +36,40 @@ class _AddNasabahPageState extends State<AddNasabahPage> {
                       hitText: "Enter address",
                     ),
                     _listTile(
+                      title: "Jenis Kelamin",
+                      hitText: "Enter jenis kelamin",
+                    ),
+                    _listTile(
+                      title: "Tempat Lahir",
+                      hitText: "Enter tempat lahir",
+                    ),
+                    _listTile(
+                      title: "Tanggal Lahir",
+                      hitText: "Enter tanggal lahir",
+                    ),
+                    _listTile(
+                      title: "Status",
+                      hitText: "Enter status hubungan",
+                    ),
+                    _listTile(
+                      title: "Pekerjaan",
+                      hitText: "Enter pekerjaan",
+                    ),
+                    _listTile(
                       title: "Tlp",
                       hitText: "Enter number",
                     ),
                     _listTile(
-                      title: "Picture",
-                      hitText: "Url picture",
+                      title: "No Rekening",
+                      hitText: "Enter no rekening",
+                    ),
+                    _listTile(
+                      title: "Saldo",
+                      hitText: "Enter saldo awal",
+                    ),
+                    _listTile(
+                      title: "Pekerjaan",
+                      hitText: "Enter pekerjaan",
                     ),
                   ],
                 ),
