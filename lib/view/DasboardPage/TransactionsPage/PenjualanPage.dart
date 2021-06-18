@@ -3,14 +3,12 @@ import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';
 import 'package:simbasa/view/component/appbar/appbar.dart';
 import 'package:flutter/cupertino.dart';
-
-
-class PenyetoranPage extends StatefulWidget {
+class PenjualanPage extends StatefulWidget {
   @override
-  _PenyetoranPageState createState() => _PenyetoranPageState();
+  _PenjualanPageState createState() => _PenjualanPageState();
 }
 
-class _PenyetoranPageState extends State<PenyetoranPage> {
+class _PenjualanPageState extends State<PenjualanPage> {
   final TextEditingController _namaInput = new TextEditingController();
   final TextEditingController _alamatInput = new TextEditingController();
   final TextEditingController _kelaminInput = new TextEditingController();
@@ -25,7 +23,7 @@ class _PenyetoranPageState extends State<PenyetoranPage> {
     return Scaffold(
       backgroundColor: PaletteColor.primarybg2,
       appBar: appbar(
-        title: "Penyetoran",
+        title: "Penjualan",
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -279,4 +277,3 @@ class _PenyetoranPageState extends State<PenyetoranPage> {
     );
   }
 }
-

@@ -4,6 +4,9 @@ import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';
 import 'package:simbasa/view/DasboardPage/HomePage/HomePage.dart';
 import 'package:simbasa/view/DasboardPage/TransactionsPage/AddNasabahPage.dart';
+import 'package:simbasa/view/DasboardPage/TransactionsPage/PenarikanPage.dart';
+import 'package:simbasa/view/DasboardPage/TransactionsPage/PenjualanPage.dart';
+import 'package:simbasa/view/DasboardPage/TransactionsPage/PenyetoranPage.dart';
 import 'package:simbasa/view/DasboardPage/UserBottomSheetFialog/UserBottomSheetDialog.dart';
 import 'package:simbasa/view/DasboardPage/component/component.dart';
 
@@ -98,6 +101,11 @@ class _DashboardPageState extends State<DashboardPage> {
                                   setState(() {
                                     _addButton = false;
                                   });
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => PenjualanPage(),
+                                    ),
+                                  );
                                 }),
                             card(
                               title: "Penyetoran",
@@ -107,6 +115,11 @@ class _DashboardPageState extends State<DashboardPage> {
                                 setState(() {
                                   _addButton = false;
                                 });
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => PenyetoranPage(),
+                                  ),
+                                );
                               },
                             ),
                             card(
@@ -117,6 +130,11 @@ class _DashboardPageState extends State<DashboardPage> {
                                 setState(() {
                                   _addButton = false;
                                 });
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => PenarikanPage(),
+                                  ),
+                                );
                               },
                             ),
                             card(
