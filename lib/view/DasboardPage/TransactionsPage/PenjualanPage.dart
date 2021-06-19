@@ -35,6 +35,9 @@ class _PenjualanPageState extends State<PenjualanPage> {
                 child: ListView(
                   physics: BouncingScrollPhysics(),
                   children: <Widget>[
+                    ListTile(
+                      title: Text(('Masukan Nama Anda')),
+                    ),
                     TextFormField(
                       // validator: (val){
                       //   if (val.length==0){
@@ -64,6 +67,9 @@ class _PenjualanPageState extends State<PenjualanPage> {
                       controller: _namaInput,
                     ),
                     SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Alamat Anda')),
+                    ),
                     TextFormField(
                       // style: new TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -86,6 +92,9 @@ class _PenjualanPageState extends State<PenjualanPage> {
                       controller: _alamatInput,
                     ),
                     SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Jenis Kelamin Anda')),
+                    ),
                     TextFormField(
                       // style: new TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -108,6 +117,9 @@ class _PenjualanPageState extends State<PenjualanPage> {
                       controller: _kelaminInput,
                     ),
                     SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Tempat Lahir Anda')),
+                    ),
                     TextFormField(
                       // style: new TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -130,6 +142,9 @@ class _PenjualanPageState extends State<PenjualanPage> {
                       controller: _tempatlahirInput,
                     ),
                     SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Status Anda')),
+                    ),
                     TextFormField(
                       // style: new TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -152,6 +167,9 @@ class _PenjualanPageState extends State<PenjualanPage> {
                       controller: _statusInput,
                     ),
                     SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Pekerjaan Anda')),
+                    ),
                     TextFormField(
                       // style: new TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -174,6 +192,9 @@ class _PenjualanPageState extends State<PenjualanPage> {
                       controller: _pekerjaanInput,
                     ),
                     SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Nomor Telpon Anda')),
+                    ),
                     TextFormField(
                       // style: new TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -193,9 +214,13 @@ class _PenjualanPageState extends State<PenjualanPage> {
                         labelText: 'Telpon',
                         labelStyle: TextStyle(fontSize: 20),
                       ),
+                      keyboardType: TextInputType.number,
                       controller: _tlpInput,
                     ),
                     SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Nomor Rekening Anda')),
+                    ),
                     TextFormField(
                       // style: new TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -215,9 +240,13 @@ class _PenjualanPageState extends State<PenjualanPage> {
                         labelText: 'Nomor Rekening',
                         labelStyle: TextStyle(fontSize: 20),
                       ),
+                      keyboardType: TextInputType.number,
                       controller: _rekInput,
                     ),
                     SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Jumlah Saldo Anda')),
+                    ),
                     TextFormField(
                       // style: new TextStyle(color: Colors.white),
                       decoration: InputDecoration(

@@ -10,6 +10,15 @@ class AddNasabahPage extends StatefulWidget {
 }
 
 class _AddNasabahPageState extends State<AddNasabahPage> {
+  final TextEditingController _namaInput = new TextEditingController();
+  final TextEditingController _alamatInput = new TextEditingController();
+  final TextEditingController _kelaminInput = new TextEditingController();
+  final TextEditingController _tempatlahirInput = new TextEditingController();
+  final TextEditingController _statusInput = new TextEditingController();
+  final TextEditingController _pekerjaanInput = new TextEditingController();
+  final TextEditingController _tlpInput = new TextEditingController();
+  final TextEditingController _rekInput = new TextEditingController();
+  final TextEditingController _saldoInput = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +27,7 @@ class _AddNasabahPageState extends State<AddNasabahPage> {
         title: "Add Nasabah",
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(20.0),
         child: Container(
           alignment: Alignment.bottomCenter,
           child: Column(
@@ -27,50 +36,240 @@ class _AddNasabahPageState extends State<AddNasabahPage> {
                 child: ListView(
                   physics: BouncingScrollPhysics(),
                   children: [
-                    _listTile(
-                      title: "Name",
-                      hitText: "Your name",
+                    ListTile(
+                      title: Text(('Masukan Nama Anda')),
                     ),
-                    _listTile(
-                      title: "Address",
-                      hitText: "Enter address",
+                    TextFormField(
+                      // validator: (val){
+                      //   if (val.length==0){
+                      //     return "empty";
+                      //   }else{
+                      //     return null;
+                      //   }
+                      // },
+                      // style: new TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            width: 1.0,
+                          ),
+                        ),
+                        prefixIcon: Padding(
+                          padding:  EdgeInsets.all(0.0),
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.black,
+                          ),
+                        ),
+                        labelText: 'nama',
+                        labelStyle: TextStyle(fontSize: 20),
+                      ),
+                      controller: _namaInput,
                     ),
-                    _listTile(
-                      title: "Jenis Kelamin",
-                      hitText: "Enter jenis kelamin",
+                    SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Alamat Anda')),
                     ),
-                    _listTile(
-                      title: "Tempat Lahir",
-                      hitText: "Enter tempat lahir",
+                    TextFormField(
+                      // style: new TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            width: 1.0,
+                          ),
+                        ),
+                        prefixIcon: Padding(
+                          padding:  EdgeInsets.all(0.0),
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.black,
+                          ),
+                        ),
+                        labelText: 'Alamat',
+                        labelStyle: TextStyle(fontSize: 20),
+                      ),
+                      controller: _alamatInput,
                     ),
-                    _listTile(
-                      title: "Tanggal Lahir",
-                      hitText: "Enter tanggal lahir",
+                    SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Jenis Kelamin Anda')),
                     ),
-                    _listTile(
-                      title: "Status",
-                      hitText: "Enter status hubungan",
+                    TextFormField(
+                      // style: new TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            width: 1.0,
+                          ),
+                        ),
+                        prefixIcon: Padding(
+                          padding:  EdgeInsets.all(0.0),
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.black,
+                          ),
+                        ),
+                        labelText: 'Jenis Kelamin',
+                        labelStyle: TextStyle(fontSize: 20),
+                      ),
+                      controller: _kelaminInput,
                     ),
-                    _listTile(
-                      title: "Pekerjaan",
-                      hitText: "Enter pekerjaan",
+                    SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Tempat Lahir Anda')),
                     ),
-                    _listTile(
-                      title: "Tlp",
-                      hitText: "Enter number",
+                    TextFormField(
+                      // style: new TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            width: 1.0,
+                          ),
+                        ),
+                        prefixIcon: Padding(
+                          padding:  EdgeInsets.all(0.0),
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.black,
+                          ),
+                        ),
+                        labelText: 'Tempat lahir',
+                        labelStyle: TextStyle(fontSize: 20),
+                      ),
+                      controller: _tempatlahirInput,
                     ),
-                    _listTile(
-                      title: "No Rekening",
-                      hitText: "Enter no rekening",
+                    SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Status Anda')),
                     ),
-                    _listTile(
-                      title: "Saldo",
-                      hitText: "Enter saldo awal",
+                    TextFormField(
+                      // style: new TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            width: 1.0,
+                          ),
+                        ),
+                        prefixIcon: Padding(
+                          padding:  EdgeInsets.all(0.0),
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.black,
+                          ),
+                        ),
+                        labelText: 'Status',
+                        labelStyle: TextStyle(fontSize: 20),
+                      ),
+                      controller: _statusInput,
                     ),
-                    _listTile(
-                      title: "Pekerjaan",
-                      hitText: "Enter pekerjaan",
+                    SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Pekerjaan Anda')),
                     ),
+                    TextFormField(
+                      // style: new TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            width: 1.0,
+                          ),
+                        ),
+                        prefixIcon: Padding(
+                          padding:  EdgeInsets.all(0.0),
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.black,
+                          ),
+                        ),
+                        labelText: 'Pekerjaan',
+                        labelStyle: TextStyle(fontSize: 20),
+                      ),
+                      controller: _pekerjaanInput,
+                    ),
+                    SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Nomor Telpon Anda')),
+                    ),
+                    TextFormField(
+                      // style: new TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            width: 1.0,
+                          ),
+                        ),
+                        prefixIcon: Padding(
+                          padding:  EdgeInsets.all(0.0),
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.black,
+                          ),
+                        ),
+                        labelText: 'Telpon',
+                        labelStyle: TextStyle(fontSize: 20),
+                      ),
+                      keyboardType: TextInputType.number,
+                      controller: _tlpInput,
+                    ),
+                    SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Masukan Nomor Rekening Anda')),
+                    ),
+                    TextFormField(
+                      // style: new TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            width: 1.0,
+                          ),
+                        ),
+                        prefixIcon: Padding(
+                          padding:  EdgeInsets.all(0.0),
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.black,
+                          ),
+                        ),
+                        labelText: 'Nomor Rekening',
+                        labelStyle: TextStyle(fontSize: 20),
+                      ),
+                      keyboardType: TextInputType.number,
+                      controller: _rekInput,
+                    ),
+                    SizedBox(height: 20,),
+                    ListTile(
+                      title: Text(('Jumlah Saldo Anda')),
+                    ),
+                    TextFormField(
+                      // style: new TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(
+                            width: 1.0,
+                          ),
+                        ),
+                        prefixIcon: Padding(
+                          padding:  EdgeInsets.all(0.0),
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.black,
+                          ),
+                        ),
+                        labelText: 'saldo',
+                        labelStyle: TextStyle(fontSize: 20),
+                      ),
+                      controller: _saldoInput,
+                    ),
+                    SizedBox(height: 20,),
                   ],
                 ),
               ),
@@ -107,47 +306,4 @@ class _AddNasabahPageState extends State<AddNasabahPage> {
       ),
     );
   }
-}
-
-Widget _listTile({String title, String hitText}) {
-  return Padding(
-    padding: const EdgeInsets.all(8.0),
-    child: ListTile(
-      title: Text(
-        title,
-        style: TypographyStyle.caption1.merge(
-          TextStyle(
-            fontSize: 14,
-            color: PaletteColor.grey80,
-          ),
-        ),
-      ),
-      subtitle: Padding(
-        padding: const EdgeInsets.only(left: 8, right: 8),
-        child: TextFormField(
-          keyboardType: TextInputType.url,
-          style: TypographyStyle.button1,
-          decoration: InputDecoration(
-            border: InputBorder.none,
-            hintText: hitText,
-            contentPadding: EdgeInsets.only(
-              left: 16,
-              top: 12,
-              bottom: 8,
-            ),
-            hintStyle: TypographyStyle.paragraph.merge(
-              TextStyle(
-                color: PaletteColor.grey60,
-              ),
-            ),
-            focusedBorder: UnderlineInputBorder(
-              borderSide: BorderSide(
-                color: PaletteColor.primary,
-              ),
-            ),
-          ),
-        ),
-      ),
-    ),
-  );
 }
