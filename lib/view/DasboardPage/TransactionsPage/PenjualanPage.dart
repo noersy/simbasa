@@ -7,17 +7,22 @@ class PenjualanPage extends StatefulWidget {
   @override
   _PenjualanPageState createState() => _PenjualanPageState();
 }
+enum SingingCharacter { organik, anorganik }
+enum SingingCharacter2 { yes, no }
 
 class _PenjualanPageState extends State<PenjualanPage> {
-  final TextEditingController _namaInput = new TextEditingController();
-  final TextEditingController _alamatInput = new TextEditingController();
-  final TextEditingController _kelaminInput = new TextEditingController();
-  final TextEditingController _tempatlahirInput = new TextEditingController();
-  final TextEditingController _statusInput = new TextEditingController();
-  final TextEditingController _pekerjaanInput = new TextEditingController();
-  final TextEditingController _tlpInput = new TextEditingController();
-  final TextEditingController _rekInput = new TextEditingController();
-  final TextEditingController _saldoInput = new TextEditingController();
+  static const String _title = 'radio button';
+  SingingCharacter _character = SingingCharacter.organik;
+  SingingCharacter2 _character2 = SingingCharacter2.yes;
+  final TextEditingController _jumlahInput = new TextEditingController();
+  final TextEditingController _totalInput = new TextEditingController();
+  // final TextEditingController _kelaminInput = new TextEditingController();
+  // final TextEditingController _tempatlahirInput = new TextEditingController();
+  // final TextEditingController _statusInput = new TextEditingController();
+  // final TextEditingController _pekerjaanInput = new TextEditingController();
+  // final TextEditingController _tlpInput = new TextEditingController();
+  // final TextEditingController _rekInput = new TextEditingController();
+  // final TextEditingController _saldoInput = new TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +41,7 @@ class _PenjualanPageState extends State<PenjualanPage> {
                   physics: BouncingScrollPhysics(),
                   children: <Widget>[
                     ListTile(
-                      title: Text(('Masukan Nama Anda')),
+                      title: Text(('Jumlah jual')),
                     ),
                     TextFormField(
                       // validator: (val){
@@ -61,14 +66,14 @@ class _PenjualanPageState extends State<PenjualanPage> {
                             color: Colors.black,
                           ),
                         ),
-                        labelText: 'nama',
+                        labelText: 'jumlah jual',
                         labelStyle: TextStyle(fontSize: 20),
                       ),
-                      controller: _namaInput,
+                      controller: _jumlahInput,
                     ),
                     SizedBox(height: 20,),
                     ListTile(
-                      title: Text(('Masukan Alamat Anda')),
+                      title: Text(('total jual')),
                     ),
                     TextFormField(
                       // style: new TextStyle(color: Colors.white),
@@ -86,189 +91,62 @@ class _PenjualanPageState extends State<PenjualanPage> {
                             color: Colors.black,
                           ),
                         ),
-                        labelText: 'Alamat',
+                        labelText: 'total jual',
                         labelStyle: TextStyle(fontSize: 20),
                       ),
-                      controller: _alamatInput,
+                      controller: _totalInput,
                     ),
                     SizedBox(height: 20,),
+                    ListTile(title: Text('Jenis Sampah'),),
                     ListTile(
-                      title: Text(('Masukan Jenis Kelamin Anda')),
-                    ),
-                    TextFormField(
-                      // style: new TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            width: 1.0,
-                          ),
-                        ),
-                        prefixIcon: Padding(
-                          padding:  EdgeInsets.all(0.0),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.black,
-                          ),
-                        ),
-                        labelText: 'Jenis Kelamin',
-                        labelStyle: TextStyle(fontSize: 20),
+                      title: const Text('organik'),
+                      leading: Radio<SingingCharacter>(
+                        value: SingingCharacter.organik,
+                        groupValue: _character,
+                        onChanged: (SingingCharacter value){
+                          setState(() {
+                            _character = value;
+                          });
+                        },
                       ),
-                      controller: _kelaminInput,
                     ),
-                    SizedBox(height: 20,),
                     ListTile(
-                      title: Text(('Masukan Tempat Lahir Anda')),
-                    ),
-                    TextFormField(
-                      // style: new TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            width: 1.0,
-                          ),
-                        ),
-                        prefixIcon: Padding(
-                          padding:  EdgeInsets.all(0.0),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.black,
-                          ),
-                        ),
-                        labelText: 'Tempat lahir',
-                        labelStyle: TextStyle(fontSize: 20),
+                      title: const Text('an organik'),
+                      leading: Radio<SingingCharacter>(
+                        value: SingingCharacter.anorganik,
+                        groupValue: _character,
+                        onChanged: (SingingCharacter value){
+                          setState(() {
+                            _character = value;
+                          });
+                        },
                       ),
-                      controller: _tempatlahirInput,
                     ),
-                    SizedBox(height: 20,),
+                    ListTile(title: Text('jual Sampah'),),
                     ListTile(
-                      title: Text(('Masukan Status Anda')),
-                    ),
-                    TextFormField(
-                      // style: new TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            width: 1.0,
-                          ),
-                        ),
-                        prefixIcon: Padding(
-                          padding:  EdgeInsets.all(0.0),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.black,
-                          ),
-                        ),
-                        labelText: 'Status',
-                        labelStyle: TextStyle(fontSize: 20),
+                      title: const Text('iya'),
+                      leading: Radio<SingingCharacter2>(
+                        value: SingingCharacter2.yes,
+                        groupValue: _character2,
+                        onChanged: (SingingCharacter2 value2){
+                          setState(() {
+                            _character2 = value2;
+                          });
+                        },
                       ),
-                      controller: _statusInput,
                     ),
-                    SizedBox(height: 20,),
                     ListTile(
-                      title: Text(('Masukan Pekerjaan Anda')),
-                    ),
-                    TextFormField(
-                      // style: new TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            width: 1.0,
-                          ),
-                        ),
-                        prefixIcon: Padding(
-                          padding:  EdgeInsets.all(0.0),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.black,
-                          ),
-                        ),
-                        labelText: 'Pekerjaan',
-                        labelStyle: TextStyle(fontSize: 20),
+                      title: const Text('tidak'),
+                      leading: Radio<SingingCharacter2>(
+                        value: SingingCharacter2.no,
+                        groupValue: _character2,
+                        onChanged: (SingingCharacter2 value2){
+                          setState(() {
+                            _character2 = value2;
+                          });
+                        },
                       ),
-                      controller: _pekerjaanInput,
                     ),
-                    SizedBox(height: 20,),
-                    ListTile(
-                      title: Text(('Masukan Nomor Telpon Anda')),
-                    ),
-                    TextFormField(
-                      // style: new TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            width: 1.0,
-                          ),
-                        ),
-                        prefixIcon: Padding(
-                          padding:  EdgeInsets.all(0.0),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.black,
-                          ),
-                        ),
-                        labelText: 'Telpon',
-                        labelStyle: TextStyle(fontSize: 20),
-                      ),
-                      keyboardType: TextInputType.number,
-                      controller: _tlpInput,
-                    ),
-                    SizedBox(height: 20,),
-                    ListTile(
-                      title: Text(('Masukan Nomor Rekening Anda')),
-                    ),
-                    TextFormField(
-                      // style: new TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            width: 1.0,
-                          ),
-                        ),
-                        prefixIcon: Padding(
-                          padding:  EdgeInsets.all(0.0),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.black,
-                          ),
-                        ),
-                        labelText: 'Nomor Rekening',
-                        labelStyle: TextStyle(fontSize: 20),
-                      ),
-                      keyboardType: TextInputType.number,
-                      controller: _rekInput,
-                    ),
-                    SizedBox(height: 20,),
-                    ListTile(
-                      title: Text(('Jumlah Saldo Anda')),
-                    ),
-                    TextFormField(
-                      // style: new TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(
-                            width: 1.0,
-                          ),
-                        ),
-                        prefixIcon: Padding(
-                          padding:  EdgeInsets.all(0.0),
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.black,
-                          ),
-                        ),
-                        labelText: 'saldo',
-                        labelStyle: TextStyle(fontSize: 20),
-                      ),
-                      controller: _saldoInput,
-                    ),
-                    SizedBox(height: 20,),
                   ],
                 ),
               ),
