@@ -113,7 +113,7 @@ class _PenarikanPageState extends State<PenarikanPage> {
                     ),
                     onPressed: () {},
                     child: Text(
-                      "Add",
+                      "tarik sekarang",
                       style: TypographyStyle.button1.merge(
                         TextStyle(
                           color: PaletteColor.primarybg,

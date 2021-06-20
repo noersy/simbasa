@@ -8,12 +8,11 @@ class PenjualanPage extends StatefulWidget {
   _PenjualanPageState createState() => _PenjualanPageState();
 }
 enum SingingCharacter { organik, anorganik }
-enum SingingCharacter2 { yes, no }
+enum SingingCharacter2 { confirm }
 
 class _PenjualanPageState extends State<PenjualanPage> {
-  static const String _title = 'radio button';
   SingingCharacter _character = SingingCharacter.organik;
-  SingingCharacter2 _character2 = SingingCharacter2.yes;
+  SingingCharacter2 _character2 = SingingCharacter2.confirm;
   final TextEditingController _jumlahInput = new TextEditingController();
   final TextEditingController _totalInput = new TextEditingController();
   // final TextEditingController _kelaminInput = new TextEditingController();
@@ -124,21 +123,9 @@ class _PenjualanPageState extends State<PenjualanPage> {
                     ),
                     ListTile(title: Text('jual Sampah'),),
                     ListTile(
-                      title: const Text('iya'),
+                      title: const Text('confirm'),
                       leading: Radio<SingingCharacter2>(
-                        value: SingingCharacter2.yes,
-                        groupValue: _character2,
-                        onChanged: (SingingCharacter2 value2){
-                          setState(() {
-                            _character2 = value2;
-                          });
-                        },
-                      ),
-                    ),
-                    ListTile(
-                      title: const Text('tidak'),
-                      leading: Radio<SingingCharacter2>(
-                        value: SingingCharacter2.no,
+                        value: SingingCharacter2.confirm,
                         groupValue: _character2,
                         onChanged: (SingingCharacter2 value2){
                           setState(() {
@@ -167,7 +154,7 @@ class _PenjualanPageState extends State<PenjualanPage> {
                     ),
                     onPressed: () {},
                     child: Text(
-                      "Add",
+                      "jual sekarang",
                       style: TypographyStyle.button1.merge(
                         TextStyle(
                           color: PaletteColor.primarybg,
