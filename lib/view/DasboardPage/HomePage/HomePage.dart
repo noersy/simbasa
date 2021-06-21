@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:simbasa/model/HomaPageDataModel.dart';
+import 'package:simbasa/provider/HomaPageProvider.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/view/DasboardPage/DataListPage/NasabahPage/NasabahPage.dart';
 import 'package:simbasa/view/DasboardPage/component/chart/linecart.dart';
@@ -7,6 +10,10 @@ import 'package:simbasa/view/DasboardPage/component/component.dart';
 import 'package:simbasa/view/component/appbar/appbar.dart';
 
 class HomePage extends StatefulWidget {
+  final homepage;
+
+  const HomePage({@required this.homepage});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -159,12 +166,12 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       listTile(
                         subtitle: "Nasabah",
-                        title: "5",
+                        title: widget.homepage.total.toString(),
                         mini: "5+",
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => NasabahPage(),
+                              builder: (context) => NasabahPage(data: widget.homepage,),
                             ),
                           );
                         },
@@ -173,6 +180,7 @@ class _HomePageState extends State<HomePage> {
                         subtitle: "Setoran",
                         title: "45",
                         mini: "mini",
+
                       ),
                       listTile(
                         subtitle: "Penarikan",

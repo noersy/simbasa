@@ -7,16 +7,16 @@ import 'package:simbasa/view/DasboardPage/component/chart/linecart.dart';
 import 'package:simbasa/view/DasboardPage/component/component.dart';
 import 'package:simbasa/view/component/appbar/appbar.dart';
 
-class NasabahPage extends StatefulWidget {
+class SetoranPage extends StatefulWidget {
   final HomePageModel data;
 
-  const NasabahPage({@required this.data});
+  const SetoranPage({@required this.data});
 
   @override
-  _NasabahPageState createState() => _NasabahPageState();
+  _SetoranPage createState() => _SetoranPage();
 }
 
-class _NasabahPageState extends State<NasabahPage> {
+class _SetoranPage extends State<SetoranPage> {
   bool isChe = false;
   bool isChe2 = false;
 

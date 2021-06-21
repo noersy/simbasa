@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';
-import 'package:simbasa/view/DasboardPage/DataListPage/NasabahPage/component/ConfirmationDeleteDialog.dart';
+import 'package:simbasa/view/DasboardPage/DataListPage/component/ConfirmationDeleteDialog.dart';
 import 'package:simbasa/view/component/appbar/appbar.dart';
 
 class EditPage extends StatelessWidget {

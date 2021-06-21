@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
+import 'package:simbasa/model/HomaPageDataModel.dart';
+import 'package:simbasa/provider/HomaPageProvider.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';
 import 'package:simbasa/view/DasboardPage/HomePage/HomePage.dart';
@@ -26,7 +29,14 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> _children = [
-      HomePage(),
+      FutureBuilder<HomePageModel>(
+        future: Provider.of<HomePageProvider>(context, listen: false).getHomePageData(),
+        builder: (BuildContext context, snapshot) {
+          return HomePage(
+            homepage: snapshot.data,
+          );
+        },
+      ),
       Container(),
     ];
     return Scaffold(
@@ -78,87 +88,87 @@ class _DashboardPageState extends State<DashboardPage> {
             duration: const Duration(milliseconds: 150),
             child: (_addButton)
                 ? GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _addButton = false;
-                      });
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.all(8.0),
-                      color: PaletteColor.grey.withOpacity(0.3),
-                      child: Container(
-                        margin: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width / 2),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            card(
-                                title: "Penjualan",
-                                icon: Icon(Icons.description),
-                                onPressed: () {
-                                  print("a");
-                                  setState(() {
-                                    _addButton = false;
-                                  });
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) => PenjualanPage(),
-                                    ),
-                                  );
-                                }),
-                            card(
-                              title: "Penyetoran",
-                              icon: Icon(Icons.movie),
-                              onPressed: () {
-                                print("a");
-                                setState(() {
-                                  _addButton = false;
-                                });
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => PenyetoranPage(),
-                                  ),
-                                );
-                              },
+              onTap: () {
+                setState(() {
+                  _addButton = false;
+                });
+              },
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                color: PaletteColor.grey.withOpacity(0.3),
+                child: Container(
+                  margin: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width / 2),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      card(
+                          title: "Penjualan",
+                          icon: Icon(Icons.description),
+                          onPressed: () {
+                            print("a");
+                            setState(() {
+                              _addButton = false;
+                            });
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => PenjualanPage(),
+                              ),
+                            );
+                          }),
+                      card(
+                        title: "Penyetoran",
+                        icon: Icon(Icons.movie),
+                        onPressed: () {
+                          print("a");
+                          setState(() {
+                            _addButton = false;
+                          });
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => PenyetoranPage(),
                             ),
-                            card(
-                              title: "Penarikan",
-                              icon: Icon(Icons.source),
-                              onPressed: () {
-                                print("a");
-                                setState(() {
-                                  _addButton = false;
-                                });
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => PenarikanPage(),
-                                  ),
-                                );
-                              },
-                            ),
-                            card(
-                              title: "Add Nasabah",
-                              icon: Icon(Icons.link),
-                              onPressed: () {
-                                setState(() {
-                                  _addButton = false;
-                                });
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => AddNasabahPage(),
-                                  ),
-                                );
-                              },
-                            ),
-                            SizedBox(
-                              height: 30,
-                            ),
-                          ],
-                        ),
+                          );
+                        },
                       ),
-                    ),
-                  )
+                      card(
+                        title: "Penarikan",
+                        icon: Icon(Icons.source),
+                        onPressed: () {
+                          print("a");
+                          setState(() {
+                            _addButton = false;
+                          });
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => PenarikanPage(),
+                            ),
+                          );
+                        },
+                      ),
+                      card(
+                        title: "Add Nasabah",
+                        icon: Icon(Icons.link),
+                        onPressed: () {
+                          setState(() {
+                            _addButton = false;
+                          });
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => AddNasabahPage(),
+                            ),
+                          );
+                        },
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
                 : SizedBox.shrink(),
           ),
         ],

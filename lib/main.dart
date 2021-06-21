@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:simbasa/provider/HomaPageProvider.dart';
+import 'package:simbasa/provider/SetoranProvider.dart';
 import 'package:simbasa/view/SplashScreenPage/SplashscreenPage.dart';
 
 void main() {
@@ -8,10 +11,20 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'simbasa',
-      home: SplashScreenPage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => HomePageProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => SetoranProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'simbasa',
+        home: SplashScreenPage(),
+      ),
     );
   }
 }

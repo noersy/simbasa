@@ -79,15 +79,7 @@ Widget listTile2({String subtitle, String amount, String kg, Function onPressed,
             ),
             SizedBox(
               width: 80,
-              child: Column(
-                children: [
-                  Align(alignment: Alignment.bottomLeft, child: Text("Rp " + amount)),
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Text(kg + " Kg", style: TypographyStyle.mini),
-                  ),
-                ],
-              ),
+              child: Align(alignment: Alignment.bottomLeft, child: Text("Rp " + amount)),
             ),
             SizedBox(
               width: 80,

@@ -4,6 +4,7 @@ import 'package:simbasa/config/GlobalKeySharedPref.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';
 import 'package:simbasa/view/DasboardPage/DashboardPage.dart';
+import 'package:simbasa/view/LoginPage/component/AuthLogin.dart';
 import 'package:simbasa/view/LoginPage/component/ButtonLogin.dart';
 import 'package:simbasa/view/LoginPage/component/MainForms.dart';
 import 'package:simbasa/view/component/Indicator/IndicatorLoad.dart';
@@ -94,14 +95,14 @@ class _LoginPageState extends State<LoginPage> {
     setState(() {
       isLoading = true;
     });
+
+    bool isLogin = await AuthLogin.auth(username: _nimController.text, password: _passwordController.text);
+
     setState(() {
       isLoading = false;
     });
-    bool isLogin = false;
 
-    if (/*_nimController.text == element["UserName"] &&
-          _passwordController.text == element["PassWord"])*/
-        true) {
+    if (isLogin) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => DashboardPage(
@@ -113,14 +114,14 @@ class _LoginPageState extends State<LoginPage> {
     }
     //});
 
-    // if (!isLogin)
-    //   showDialog(
-    //     context: context,
-    //     builder: (context) {
-    //       return AlertDialog(
-    //         content: Text("Username or Password is Wrong"),
-    //       );
-    //     },
-    //   );
+    if (!isLogin)
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text("Username or Password is Wrong"),
+          );
+        },
+      );
   }
 }

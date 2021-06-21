@@ -35,6 +35,7 @@ dependencies:
   image_picker: ^0.6.7+17
   fl_chart: ^0.36.1
   late_init: ^1.1.0
+  provider: ^4.0.2
 
 
 dev_dependencies:
