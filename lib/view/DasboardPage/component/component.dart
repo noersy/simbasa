@@ -61,7 +61,7 @@ ListTile listTile(
   );
 }
 
-Widget listTile2({String subtitle, String amount, String kg, Function onPressed, Function onLongPressed, int index}) {
+Widget listTile2({String subtitle, String amount, String kg, String date, Function onPressed, Function onLongPressed, int index}) {
   return Card(
     child: InkWell(
       onTap: () {},
@@ -87,7 +87,7 @@ Widget listTile2({String subtitle, String amount, String kg, Function onPressed,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("Last Activity", style: TypographyStyle.mini,),
-                  Text("1 Jun"),
+                  Text(date),
                 ],
               ),
             ),

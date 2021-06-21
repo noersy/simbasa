@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
 
 class LineChartSample2 extends StatefulWidget {
+
+
+
   @override
   _LineChartSample2State createState() => _LineChartSample2State();
 }
@@ -94,12 +97,14 @@ class _LineChartSample2State extends State<LineChartSample2> {
               fontSize: 12),
           getTitles: (value) {
             switch (value.toInt()) {
-              case 2:
+              case 1:
+                return 'JAN';
+              case 4:
                 return 'MAR';
-              case 5:
-                return 'JUN';
-              case 8:
-                return 'SEP';
+              case 7:
+                return 'MEI';
+              case 10:
+                return 'JUL';
             }
             return '';
           },
@@ -139,13 +144,13 @@ class _LineChartSample2State extends State<LineChartSample2> {
       lineBarsData: [
         LineChartBarData(
           spots: [
-            FlSpot(0, 3),
-            FlSpot(2.6, 2),
-            FlSpot(4.9, 5),
-            FlSpot(6.8, 3.1),
-            FlSpot(8, 4),
-            FlSpot(9.5, 3),
-            FlSpot(11, 4),
+            FlSpot(0, 0),
+            FlSpot(2.6, 0),
+            FlSpot(4.9, 0),
+            FlSpot(6.8, 0),
+            FlSpot(8, 0),
+            FlSpot(9.5, 0),
+            FlSpot(11, 1),
           ],
           isCurved: true,
           colors: gradientColors,

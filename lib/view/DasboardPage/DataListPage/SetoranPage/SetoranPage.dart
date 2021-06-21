@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:simbasa/model/HomaPageDataModel.dart';
+import 'package:simbasa/model/HomePageModel.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
-import 'package:simbasa/theme/TypographyStyle.dart';
 import 'package:simbasa/view/DasboardPage/DataListPage/NasabahPage/EditPage/EditPage.dart';
 import 'package:simbasa/view/DasboardPage/component/chart/linecart.dart';
 import 'package:simbasa/view/DasboardPage/component/component.dart';
 import 'package:simbasa/view/component/appbar/appbar.dart';
+import 'package:intl/intl.dart';
+
 
 class SetoranPage extends StatefulWidget {
   final HomePageModel data;
@@ -48,14 +49,14 @@ class _SetoranPage extends State<SetoranPage> {
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Nasabah'),
-                    Text('Baru'),
+                    Text('Setoran'),
+                    Text(widget.data.setoran.length.toString()),
                   ],
                 ),
                 subtitle: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('234'),
+                    Text("Baru"),
                     Text(
                       '+1,6%',
                       style: TextStyle(color: PaletteColor.green),
@@ -152,9 +153,9 @@ class _SetoranPage extends State<SetoranPage> {
                   ),
                   Align(
                       alignment: Alignment.bottomLeft,
-                      child: SizedBox(width: 80, child: Text('Name'))),
-                  SizedBox(width: 100, child: Text('Tabungan')),
-                  SizedBox(width: 100, child: Text('Status')),
+                      child: SizedBox(width: 80, child: Text('Nasabah'))),
+                  SizedBox(width: 100, child: Text('Jumlah')),
+                  SizedBox(width: 100, child: Text('Tanggal')),
                 ],
               ),
             ),
@@ -163,11 +164,12 @@ class _SetoranPage extends State<SetoranPage> {
                 padding: const EdgeInsets.all(8),
                 child: ListView.builder(
                   physics: BouncingScrollPhysics(),
-                  itemCount: widget.data.total,
+                  itemCount: widget.data.setoran.length,
                   itemBuilder: (BuildContext context, int index) {
                     return listTile2(
-                      subtitle: widget.data.data[index].namaNasabah,
-                      amount: widget.data.data[index].saldo.toString(),
+                      subtitle: widget.data.data.where((element) => element.id == widget.data.setoran[index].nasabahId).first.namaNasabah,
+                      amount: widget.data.setoran[index].totalSetor.toString(),
+                      date: DateFormat('dd-MM-yyyy').format(widget.data.setoran[index].tglSetor),
                       index: index+1,
                       onLongPressed: showEdit,
                     );

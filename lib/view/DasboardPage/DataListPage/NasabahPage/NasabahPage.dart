@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:simbasa/model/HomaPageDataModel.dart';
+import 'package:intl/intl.dart';
+import 'package:simbasa/model/HomePageModel.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';
 import 'package:simbasa/view/DasboardPage/DataListPage/NasabahPage/EditPage/EditPage.dart';
@@ -168,6 +169,7 @@ class _NasabahPageState extends State<NasabahPage> {
                     return listTile2(
                       subtitle: widget.data.data[index].namaNasabah,
                       amount: widget.data.data[index].saldo.toString(),
+                      date: DateFormat('dd-MM-yyyy').format(widget.data.data[index].updatedAt),
                       index: index+1,
                       onLongPressed: showEdit,
                     );

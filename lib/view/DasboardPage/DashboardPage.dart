@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
-import 'package:simbasa/model/HomaPageDataModel.dart';
+import 'package:simbasa/model/HomePageModel.dart';
 import 'package:simbasa/provider/HomaPageProvider.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/theme/TypographyStyle.dart';

@@ -1,16 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:simbasa/model/HomaPageDataModel.dart';
-import 'package:simbasa/provider/HomaPageProvider.dart';
+import 'package:simbasa/model/HomePageModel.dart';
 import 'package:simbasa/theme/PaletteColor.dart';
 import 'package:simbasa/view/DasboardPage/DataListPage/NasabahPage/NasabahPage.dart';
+import 'package:simbasa/view/DasboardPage/DataListPage/SetoranPage/SetoranPage.dart';
 import 'package:simbasa/view/DasboardPage/component/chart/linecart.dart';
 import 'package:simbasa/view/DasboardPage/component/component.dart';
 import 'package:simbasa/view/component/appbar/appbar.dart';
 
 class HomePage extends StatefulWidget {
-  final homepage;
+  final HomePageModel homepage;
 
   const HomePage({@required this.homepage});
 
@@ -52,14 +51,13 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text('Dana'),
-                      Text('RP 10,945.00'),
+                      Text('RP ' + widget.homepage.bank.jmlSimpanan.toString() + ',00'),
                     ],
                   ),
                   subtitle: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Terkumpul'),
-                      Text('13.021 Ton'),
+                      Text('Bank ' + widget.homepage.bank.nmBanksampah),
                     ],
                   ),
                 ),
@@ -178,9 +176,15 @@ class _HomePageState extends State<HomePage> {
                       ),
                       listTile(
                         subtitle: "Setoran",
-                        title: "45",
+                        title: widget.homepage.setoran.length.toString(),
                         mini: "mini",
-
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => SetoranPage(data: widget.homepage,),
+                            ),
+                          );
+                        },
                       ),
                       listTile(
                         subtitle: "Penarikan",

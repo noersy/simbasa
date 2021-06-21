@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
-import 'package:simbasa/model/HomaPageDataModel.dart';
+import 'package:simbasa/model/HomePageModel.dart';
 
 class HomePageProvider extends ChangeNotifier{
 
